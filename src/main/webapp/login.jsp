@@ -250,7 +250,7 @@ body{
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form action="log" method="post">
+            <form action="signup" method="post">
                 <h1>Create Account</h1>
                 <div class="social-icons">
                     <a href="#" class="icon">
@@ -273,15 +273,15 @@ body{
                     </a>
                 </div>
                 <span>or use your email for registration </span>
-                <input type="text" name="uid" placeholder="Name">
+                <input type="text" name="username" placeholder="Name">
                 <input type="email" name="email" placeholder="Email">
-                <input type="password" name="pass" placeholder="Password">
+                <input type="password" name="password" placeholder="Password">
                 <button>Sign Up</button>
 
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form action="login.jsp" method="post">
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon">
@@ -304,8 +304,8 @@ body{
                     </a>
                 </div>
                 <span>or use your email password </span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
                 <a href="#">Forget your password?</a>
             <button>Sign In </button>
             </form>
@@ -335,18 +335,18 @@ body{
 
 
     <script>
-    const container = document.getElementById("container");
-    const registerBtn = document.getElementById("register");
-    const loginBtn = document.getElementById("login");
+            const container = document.getElementById("container");
+            const registerBtn = document.getElementById("register");
+            const loginBtn = document.getElementById("login");
 
-    registerBtn.addEventListener("click", () => {
-      container.classList.add("active");
-    });
+            registerBtn.addEventListener("click", () => {
+                container.classList.add("active");
+            });
 
-    loginBtn.addEventListener("click", () => {
-      container.classList.remove("active");
-    });
-</script>
+            loginBtn.addEventListener("click", () => {
+                container.classList.remove("active");
+            });
+        </script>
 
 </body>
 </html>
