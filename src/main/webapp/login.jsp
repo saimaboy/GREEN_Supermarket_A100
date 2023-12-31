@@ -1,3 +1,7 @@
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.PreparedStatement" %>
+ <%@ page import="java.sql.SQLException" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -250,7 +254,7 @@ body{
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form action="signup" method="post">
+            <form action="/signup" method="post">
                 <h1>Create Account</h1>
                 <div class="social-icons">
                     <a href="#" class="icon">
@@ -276,12 +280,12 @@ body{
                 <input type="text" name="username" placeholder="Name">
                 <input type="email" name="email" placeholder="Email">
                 <input type="password" name="password" placeholder="Password">
-                <button>Sign Up</button>
+                <button type="submit">Sign Up</button>
 
             </form>
         </div>
         <div class="form-container sign-in">
-            <form action="login.jsp" method="post">
+            <form action="/login" method="post">
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon">
@@ -307,7 +311,7 @@ body{
                 <input type="email" name="email" placeholder="Email">
                 <input type="password" name="password" placeholder="Password">
                 <a href="#">Forget your password?</a>
-            <button>Sign In </button>
+            <button type="submit">Sign In </button>
             </form>
         </div>
         <div class="toggle-container">

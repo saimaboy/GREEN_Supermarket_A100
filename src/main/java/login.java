@@ -11,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet("/login")
+@WebServlet(name = "login", urlPatterns = {"/login"})
 public class login extends HttpServlet {
     private static final long serialVersionUID = 6433858223774886977L;
 
@@ -27,7 +27,7 @@ public class login extends HttpServlet {
         // JDBC URL, username, and password of MySQL server
         String jdbcUrl = "jdbc:mysql://localhost:3306/green_supermarket_a100";// Corrected the port
         String dbUser = "root";
-        String dbPassword = "";
+        String dbPassword = "Dhanuka2001#";
 
         try {
             // Load the JDBC driver
@@ -36,7 +36,7 @@ public class login extends HttpServlet {
             // Establish a connection
             try (Connection connection = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword)) {
                 // Create a prepared statement
-                String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+                String sql = "SELECT * FROM customer WHERE email = ? AND password = ?";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                     preparedStatement.setString(1, email);
                     preparedStatement.setString(2, password);
@@ -60,5 +60,13 @@ public class login extends HttpServlet {
             e.printStackTrace();
             response.sendRedirect("login.jsp");
         }
+
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+
     }
 }

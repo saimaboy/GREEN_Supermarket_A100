@@ -1,4 +1,5 @@
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,8 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
-
-
+/**
+ * Servlet implementation class cart
+ */
 @WebServlet("/cart")
 public class cart extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -23,13 +25,16 @@ public class cart extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-
+    /**
+     * @see HttpServlet doGet(HttpServletRequest request, HttpServletResponse response)
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         response.getWriter().append("Served at: ").append(request.getContextPath());
     }
 
     /**
+     * @see HttpServlet doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Retrieve data from the AJAX request
@@ -38,7 +43,7 @@ public class cart extends HttpServlet {
 
         String jdbcUrl = "jdbc:mysql://localhost:3306/green_super_market";
         String dbUser = "root";
-        String dbPassword = "";
+        String dbPassword = "Dhanuka2001#";
 
         try {
             // Load the JDBC driver
@@ -75,4 +80,3 @@ public class cart extends HttpServlet {
     }
 
 }
-

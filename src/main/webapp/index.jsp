@@ -51,11 +51,11 @@
 
         <div class="col-lg-3 col-6 text-right">
 
-            <a href="favourite.html" class="btn ">
+            <a href="favourite.jsp" class="btn ">
                 <i class="fas fa-heart btn-color" style="font-size: 24px;"></i>
 
             </a>
-            <a href="cart.html" class="btn ">
+            <a href="cart.jsp" class="btn ">
                 <i class="fas fa-shopping-cart btn-color" style="font-size: 24px;"></i>
                 </a>
 

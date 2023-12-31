@@ -50,11 +50,11 @@
 
         <div class="col-lg-3 col-6 text-right">
 
-            <a href="favourite.html" class="btn ">
+            <a href="favourite.jsp" class="btn ">
                 <i class="fas fa-heart btn-color" style="font-size: 24px;"></i>
 
             </a>
-            <a href="cart.html" class="btn ">
+            <a href="cart.jsp" class="btn ">
                 <i class="fas fa-shopping-cart btn-color" style="font-size: 24px;"></i>
                 </a>
 
@@ -70,7 +70,7 @@
                         <a class="dropdown-item" href="profile.jsp">Profile</a>
                         <a class="dropdown-item" href="#">Language</a>
                         <a class="dropdown-item" href="#">Setting</a>
-                        <a class="dropdown-item" href="">Log out</a>
+                        <a class="dropdown-item" href="index.jsp">Log out</a>
                     </div>
                 </div>
 
@@ -94,14 +94,14 @@
             <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
                 <div class="navbar-nav w-100 overflow-hidden" style="height: 300px">
                     <div class="nav-item dropdown">
-                        <a href="Cloths.html" class="nav-item nav-link">Clothes And Wear</a>
-                        <a href="vegetablesandfruits.html" class="nav-item nav-link">vegetables and fruits</a>
-                    <a href="HealthandBeauty.html" class="nav-item nav-link">Health and Beauty  </a>
-                    <a href="Babyproducts.html" class="nav-item nav-link">Baby products</a>
-                    <a href="Animal.html" class="nav-item nav-link">Animal and pets</a>
-                    <a href="Sportsandoutdoor.html" class="nav-item nav-link">sports and outdoors</a>
-                    <a href="Homeandinteriors.html" class="nav-item nav-link">Home and interiors</a>
-                    <a href="Dryfoods.html" class="nav-item nav-link">Dry Foods</a>
+                        <a href="Cloths.jsp" class="nav-item nav-link">Clothes And Wear</a>
+                        <a href="vegetablesandfruits.jsp" class="nav-item nav-link">vegetables and fruits</a>
+                    <a href="HealthandBeauty.jsp" class="nav-item nav-link">Health and Beauty  </a>
+                    <a href="Babyproducts.jsp" class="nav-item nav-link">Baby products</a>
+                    <a href="Animal.jsp" class="nav-item nav-link">Animal and pets</a>
+                    <a href="Sportsandoutdoor.jsp" class="nav-item nav-link">sports and outdoors</a>
+                    <a href="Homeandinteriors.jsp" class="nav-item nav-link">Home and interiors</a>
+                    <a href="Dryfoods.jsp" class="nav-item nav-link">Dry Foods</a>
                 </div>
             </nav>
         </div>
