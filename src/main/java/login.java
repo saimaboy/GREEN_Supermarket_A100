@@ -1,3 +1,8 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -6,67 +11,55 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet(name = "login", urlPatterns = {"/login"})
+/**
+ *
+ * @author DELL
+ */
+@WebServlet(name = "login", value = "/login")
 public class login extends HttpServlet {
-    private static final long serialVersionUID = 6433858223774886977L;
 
-    public login() {
-        super();
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.sendRedirect("login.jsp");
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
 
-        // JDBC URL, username, and password of MySQL server
-        String jdbcUrl = "jdbc:mysql://localhost:3306/green_supermarket_a100";// Corrected the port
-        String dbUser = "root";
-        String dbPassword = "Dhanuka2001#";
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
 
         try {
-            // Load the JDBC driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = dbConnection.getConnection();
+            String sql = "SELECT * FROM user WHERE email = ? AND password = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, email);
+            statement.setString(2, password);
 
-            // Establish a connection
-            try (Connection connection = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword)) {
-                // Create a prepared statement
-                String sql = "SELECT * FROM customer WHERE email = ? AND password = ?";
-                try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-                    preparedStatement.setString(1, email);
-                    preparedStatement.setString(2, password);
+            resultSet = statement.executeQuery();
 
-                    // Execute the statement
-                    try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                        if (resultSet.next()) {
-                            // Login successful
-                            response.sendRedirect("home.jsp");
-                            HttpSession session = request.getSession();
-                            session.setAttribute("email", email);
-
-                        } else {
-                            // Login failed
-                            response.sendRedirect("login.jsp");
-                        }
-                    }
-                }
+            if (resultSet.next()) {
+                HttpSession session = req.getSession();
+                session.setAttribute("userEmail", email);
+                resp.sendRedirect("/getUserData");
+            } else {
+                resp.sendRedirect("../login/error.jsp");
             }
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("login.jsp");
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (statement != null) statement.close();
+                if (connection != null) dbConnection.closeConnection(connection);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-
     }
 }

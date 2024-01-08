@@ -352,18 +352,7 @@
                             <div class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="payment" id="paypal">
                                 <label class="custom-control-label" for="paypal">Paypal</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="payment" id="directcheck">
-                                <label class="custom-control-label" for="directcheck">Direct Check</label>
-                            </div>
-                        </div>
-                        <div class="">
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="payment" id="banktransfer">
-                                <label class="custom-control-label" for="banktransfer">Bank Transfer</label>
+                                 <script src="https://www.paypal.com/sdk/js?client-id=AUBA90Ki_2CQEmoVYlja4DrZdw4O5MN3AHikBYfkUv7PF6AZuwfrSWVjAwF8jo7kYr6eNcdOzHQ8crAJ&currency=USD" data-sdk-integration-source="button-factory"></script>
                             </div>
                         </div>
                     </div>
@@ -493,6 +482,29 @@
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
+
+ <script>
+             const retrievedTotalBillAmount = localStorage.getItem('payment');
+             const billAmountInRS = (retrievedTotalBillAmount / 325).toFixed(2);
+             paypal.Buttons({
+                 createOrder: function(data, actions) {
+                     return actions.order.create({
+                         purchase_units: [{
+                             amount: {
+                                 value: billAmountInRS
+                             }
+                         }]
+                     });
+                 },
+                 onApprove: function(data, actions) {
+                     return actions.order.capture().then(function(details) {
+                         window.location.href = 'paymentStatus?orderID=' + data.orderID;
+                     });
+                 }
+             }).render('#paypalSpace');
+         </script>
+
+
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

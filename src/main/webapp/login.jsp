@@ -308,8 +308,8 @@ body{
                     </a>
                 </div>
                 <span>or use your email password </span>
-                <input type="email" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
+                 <input type="email" placeholder="Email Address" title="Email Address" name="email" required>
+                 <input type="password" placeholder="Password" title="Password" name="password" required>
                 <a href="#">Forget your password?</a>
             <button type="submit">Sign In </button>
             </form>

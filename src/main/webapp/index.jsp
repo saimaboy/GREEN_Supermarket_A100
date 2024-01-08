@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : Jan 8, 2024, 1:33:05 PM
+    Author     : DELL
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
