@@ -8,7 +8,7 @@
  * @author DELL
  */
 
-
+package com.user;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
