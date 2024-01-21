@@ -1,21 +1,12 @@
-<%-- 
-    Document   : index
-    Created on : Jan 8, 2024, 1:33:05 PM
-    Author     : DELL
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>
     <meta charset="utf-8">
-    <title>Green Super Market</title>
+    <title>Green Supermarket</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
-
+  
     <!-- Favicon -->
     <link href="img/LOGO.png" rel="icon">
 
@@ -809,7 +800,7 @@
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
 
-    <!-- Template Javascript -->
+   
     <script src="js/main.js"></script>
 </body>
 
